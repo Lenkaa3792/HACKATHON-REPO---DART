@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:io'; //Importing the I/O library to use stdin for user input
 
 bool isPalindrome(String input) {
   // Remove spaces, punctuation and convert to lowercase
