@@ -1,6 +1,5 @@
 import 'dart:core';
 import 'dart:io';
-import 'dart:math';
 
 /// Bubble Sort Algorithm
 /// Sorts a list of integers using the Bubble Sort algorithm.
@@ -51,21 +50,32 @@ List<int> quickSort(List<int> list) {
 }
 
 void main() {
-  // Example list
-  List<int> list = [34, 7, 23, 32, 5, 62, 32, 43, 1, 0];
+  print("Enter a list of integers separated by spaces:");
+  String? input = stdin.readLineSync();
 
-  // Bubble Sort
-  Stopwatch stopwatch = Stopwatch()..start();
-  List<int> bubbleSortedList = bubbleSort(List.from(list));
-  stopwatch.stop();
-  print('Bubble Sort: ${bubbleSortedList}');
-  print('Bubble Sort Execution Time: ${stopwatch.elapsedMilliseconds} ms');
+  if (input != null && input.isNotEmpty) {
+    try {
+      List<int> list = input.split(' ').map((s) => int.parse(s)).toList();
 
-  // Quick Sort
-  stopwatch.reset();
-  stopwatch.start();
-  List<int> quickSortedList = quickSort(List.from(list));
-  stopwatch.stop();
-  print('Quick Sort: ${quickSortedList}');
-  print('Quick Sort Execution Time: ${stopwatch.elapsedMilliseconds} ms');
+      // Bubble Sort
+      Stopwatch stopwatch = Stopwatch()..start();
+      List<int> bubbleSortedList = bubbleSort(List.from(list));
+      stopwatch.stop();
+      print('Bubble Sort: ${bubbleSortedList}');
+      print('Bubble Sort Execution Time: ${stopwatch.elapsedMilliseconds} ms');
+
+      // Quick Sort
+      stopwatch.reset();
+      stopwatch.start();
+      List<int> quickSortedList = quickSort(List.from(list));
+      stopwatch.stop();
+      print('Quick Sort: ${quickSortedList}');
+      print('Quick Sort Execution Time: ${stopwatch.elapsedMilliseconds} ms');
+      
+    } catch (e) {
+      print("Error parsing input: ${e}");
+    }
+  } else {
+    print("No input provided.");
+  }
 }
