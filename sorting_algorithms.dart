@@ -1,4 +1,4 @@
-// main.dart
+// sorting_algorithms.dart
 
 import 'dart:core';
 
@@ -41,6 +41,14 @@ List<int> quickSort(List<int> list) {
 
 void main() {
   List<int> numbers = [9, 3, 5, 2, 8, 1, 4, 7, 6];
+  List<int> emptyList = []; // Example of using an empty list
+  List<int> duplicateElements = [
+    3,
+    3,
+    3,
+    3,
+    3
+  ]; // Example of using a list with duplicate elements
 
   // Bubble Sort
   print("Original list: $numbers");
@@ -57,4 +65,12 @@ void main() {
   stopwatch.stop();
   print("Quick Sorted list: $quickSorted");
   print("Quick Sort took: ${stopwatch.elapsedMilliseconds} milliseconds");
+
+  // Testing empty list
+  print("Bubble Sorted empty list: ${bubbleSort(emptyList)}");
+  print("Quick Sorted empty list: ${quickSort(emptyList)}");
+
+  // Testing list with duplicate elements
+  print("Bubble Sorted list with duplicates: ${bubbleSort(duplicateElements)}");
+  print("Quick Sorted list with duplicates: ${quickSort(duplicateElements)}");
 }

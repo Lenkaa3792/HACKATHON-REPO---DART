@@ -1,32 +1,30 @@
 // basic_calculator.dart
 
-// This function performs basic arithmetic operations
+/// Performs basic arithmetic operations.
+///
+/// [num1] is the first number, [num2] is the second number, and [operator] is the arithmetic operation.
+///
+/// Throws [ArgumentError] if [operator] is invalid or if division/modulus by zero is attempted.
 double calculate(double num1, double num2, String operator) {
-  // Check the operator and perform the corresponding operation
   switch (operator) {
     case '+':
-      return num1 + num2; // Addition
+      return num1 + num2;
     case '-':
-      return num1 - num2; // Subtraction
+      return num1 - num2;
     case '*':
-      return num1 * num2; // Multiplication
+      return num1 * num2;
     case '/':
-      // Check for division by zero
       if (num2 == 0) {
-        throw ArgumentError(
-            'Cannot divide by zero'); // Error message for division by zero
+        throw ArgumentError('Cannot divide by zero');
       }
-      return num1 / num2; // Division
+      return num1 / num2;
     case '%':
-      // Check for division by zero
       if (num2 == 0) {
-        throw ArgumentError(
-            'Cannot divide by zero'); // Error message for division by zero
+        throw ArgumentError('Cannot divide by zero');
       }
-      return num1 % num2; // Modulus
+      return num1 % num2;
     default:
-      throw ArgumentError(
-          'Invalid operator'); // Error message for invalid operator
+      throw ArgumentError('Invalid operator');
   }
 }
 
